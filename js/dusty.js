@@ -11,7 +11,6 @@
   // p - Particle
   // fn - function
   // ctx - 2D Context
-
   // General Functions
   var app, fnAddEventListener, fnRequestAnimationFrame;
 
@@ -34,13 +33,7 @@
   };
 
   app = function () {
-    var Particle, ctxRender, fAngle, fCosAngle, fMaxAX, fMaxAY, fMaxAZ, fPI, fSinAngle, fStartVX, fStartVY, fStartVZ, fVX, fnACos, fnCos, fnMax, fnMin, fnNextFrame, fnRender, fnRnd, fnRnd2, fnSetSize, fnSin, fnSwapList, gui, h, iProjSphereX, iProjSphereY, iRadiusSphere, nBody, oBuffer, oDoc, oRadGrad, oRender, oStats, w;
-    oStats = new Stats();
-    oStats.setMode(0);
-    oStats.domElement.style.position = 'absolute';
-    oStats.domElement.style.left = '0px';
-    oStats.domElement.style.top = '0px';
-    document.body.appendChild(oStats.domElement);
+    var Particle, ctxRender, fAngle, fCosAngle, fMaxAX, fMaxAY, fMaxAZ, fPI, fSinAngle, fStartVX, fStartVY, fStartVZ, fVX, fnACos, fnCos, fnMax, fnMin, fnNextFrame, fnRender, fnRnd, fnRnd2, fnSetSize, fnSin, fnSwapList, gui, h, iProjSphereX, iProjSphereY, iRadiusSphere, nBody, oBuffer, oDoc, oRadGrad, oRender, w;
     // General Elements
     oDoc = document;
     nBody = oDoc.body;
@@ -224,12 +217,12 @@
     }.call(this);
     fnRender = function () {
        var iCount, p;
-      ctxRender.fillStyle = "rgba(0,0,150,1)";
-      ctxRender.fillRect(0, 0, w, h);
+      ctxRender.fillStyle = "lightblue";
+      ctxRender.fillRect(500, 300, 250, 250);
       p = oRender.pFirst;
       iCount = 0;
       while (p != null) {
-        ctxRender.fillStyle = "rgba(" + window.aColor.join(',') + ',' + 1 +")";
+        ctxRender.fillStyle = "rgba(" + window.aColor.join(',') + ',' + p.fAlpha.toFixed(4) +")";
         ctxRender.beginPath();
         ctxRender.arc(p.fProjX, p.fProjY, p.fRadiusCurrent, 0, 2 * fPI, false);
         ctxRender.closePath();
@@ -240,7 +233,6 @@
   };
     fnNextFrame = function () {
       var iAddParticle, iCount, p, pNext;
-      oStats.begin();
       fAngle = (fAngle + fVX) % (2.0 * fPI);
       fSinAngle = fnSin(fAngle);
       fCosAngle = fnCos(fAngle);
@@ -258,7 +250,6 @@
         iCount++;
       }
       fnRender();
-      oStats.end();
       return fnRequestAnimationFrame(function () {
         return fnNextFrame();
       });
