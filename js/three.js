@@ -300,10 +300,10 @@ THREERoot.prototype = {
     this.renderer.render(this.scene, this.camera);
   },
   resize: function () {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.aspect = window.innerWidth / (window.innerHeight / 1.75);
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight / 1.75);
   }
 };
 

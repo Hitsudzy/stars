@@ -1,11 +1,11 @@
 body{
     margin: 0;
     overflow: hidden;
+    background-image: url(../images/background2.svg);
+    background-repeat: repeat-x;
+    background-size: 100%;
 }
 .slide1{
-    background-image: url(../images/background2.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
     width: 100vw;
     height: 100vh;
 }
@@ -14,12 +14,15 @@ body{
     font-family: 'Futura Demi';
     font-style: normal;
     font-weight: bold;
-    font-size: 122px;
+    font-size: 80px;
     line-height: 114px;
     position: absolute;
     top: 35%;
     width: 100vw;
     text-align: center;
+}
+.sliderContainer{
+    width: 10% !important;
 }
 .three-container{
     background-color: rgba(0,0,0,0);
@@ -31,4 +34,10 @@ body{
     url('FuturaDemiC.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.three-container img{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
 }
