@@ -218,7 +218,7 @@
     fnRender = function () {
        var iCount, p;
       ctxRender.fillStyle = "lightblue";
-      ctxRender.fillRect(500, 300, 250, 250);
+      ctxRender.fillRect(800, 300, 250, 250);
       p = oRender.pFirst;
       iCount = 0;
       while (p != null) {
