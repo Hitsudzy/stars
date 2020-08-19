@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.slide1{
+    background-image: url(../images/background2.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#title{
+    color: #FFFFFF;
+    font-family: 'Futura Demi';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 122px;
+    line-height: 114px;
+    position: absolute;
+    top: 250px;
+}
+.three-container{
+    background-color: rgba(0,0,0,0);
+}
+@font-face {
+    font-family: 'Futura Demi';
+    src: url('FuturaDemiC.eot');
+    src: url('FuturaDemiC.eot?#iefix') format('embedded-opentype'),
+    url('FuturaDemiC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
