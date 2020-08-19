@@ -8,10 +8,6 @@ body{
     background-size: 100%;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 #title{
     color: #FFFFFF;
@@ -21,7 +17,9 @@ body{
     font-size: 122px;
     line-height: 114px;
     position: absolute;
-    top: 250px;
+    top: 35%;
+    width: 100vw;
+    text-align: center;
 }
 .three-container{
     background-color: rgba(0,0,0,0);
@@ -33,4 +31,4 @@ body{
     url('FuturaDemiC.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    }
+}
