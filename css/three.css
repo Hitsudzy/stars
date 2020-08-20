@@ -8,11 +8,6 @@ body, html{
 .slide1{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
 }
 #title{
     color: #FFFFFF;
@@ -24,9 +19,19 @@ body, html{
     text-align: center;
     width: 100vw;
     z-index: 1;
+    position: absolute;
+    width: 100vw;
+    top: 28.5%;
 }
 #underline{
     z-index: 1;
+    bottom: 15%;
+    left:50%;
+    margin:auto; 
+    width:50%; 
+    height:100px;
+    position:absolute;  
+    margin-left:-25%; 
 }
 #three-container{
     position: absolute;
