@@ -18,7 +18,7 @@ function init() {
   var slide = new Slide(width, height, 'out');
 	var l1 = new THREE.ImageLoader();
 	l1.setCrossOrigin('Anonymous');
-	l1.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/winter.jpg', function(img) {
+	l1.load('../images/ipoteka.png', function(img) {
 	  slide.setImage(img);
 	})
   root.scene.add(slide);
@@ -32,7 +32,7 @@ function init() {
 	
   root.scene.add(slide2);
 
-  var tl = new TimelineMax({repeat:-1, repeatDelay:10.0, yoyo: true});
+  var tl = new TimelineMax({repeat:-1, repeatDelay:5.0, yoyo: true});
 
   tl.add(slide.transition(), 0);
   tl.add(slide2.transition(), 0);
