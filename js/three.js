@@ -1,46 +1,46 @@
+window.onload = init;
 console.ward = function() {}; // what warnings?
 
-function init(img1,img2) {
-  var root = new THREERoot({
-    createCameraControls: !true,
-    antialias: (window.devicePixelRatio === 1),
-    fov: 80
-  });
-
+function init() {
+    var root = new THREERoot({
+        createCameraControls: !true,
+        antialias: (window.devicePixelRatio === 1),
+        fov: 80
+    });
   root.renderer.setClearColor(0x000000, 0);
   root.renderer.setPixelRatio(window.devicePixelRatio || 1);
   root.camera.position.set(0, 0, 60);
-
   var width = 100;
   var height = 60;
 
-  var slide = new Slide(width, height, 'out');
+  var slide = new Slide(width, height, 'in');
 	var l1 = new THREE.ImageLoader();
 	l1.setCrossOrigin('Anonymous');
-	l1.load('img1', function(img) {
+	l1.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/winter.jpg', function(img) {
 	  slide.setImage(img);
 	})
   root.scene.add(slide);
 
-  var slide2 = new Slide(width, height, 'in');
+  var slide2 = new Slide(width, height, 'out');
   var l2 = new THREE.ImageLoader();
 	l2.setCrossOrigin('Anonymous');
-	l2.load('img2', function(img) {
+	l2.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/spring.jpg', function(img) {
 		slide2.setImage(img);
 	})
 	
   root.scene.add(slide2);
-
-  var tl = new TimelineMax({repeat:0, repeatDelay:1.0, yoyo: true});
-
-  tl.add(slide.transition(), 0);
-  tl.add(slide2.transition(), 0);
+  
+  setInterval(() => changer(),5000);
+  function changer(){
+    var tl = new TimelineMax({repeat:0, repeatDelay:0.0, yoyo: true});
+    tl.add(slide.transition(), 0);
+    tl.add(slide2.transition(), 0);
+  }
+  
 }
-
 ////////////////////
 // CLASSES
 ////////////////////
-
 function Slide(width, height, animationPhase) {
   var plane = new THREE.PlaneGeometry(width, height, width * 2, height * 2);
 
