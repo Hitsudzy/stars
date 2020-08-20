@@ -1,7 +1,6 @@
-window.onload = init;
 console.ward = function() {}; // what warnings?
 
-function init() {
+function init(img1,img2) {
   var root = new THREERoot({
     createCameraControls: !true,
     antialias: (window.devicePixelRatio === 1),
@@ -18,7 +17,7 @@ function init() {
   var slide = new Slide(width, height, 'out');
 	var l1 = new THREE.ImageLoader();
 	l1.setCrossOrigin('Anonymous');
-	l1.load('../images/ipoteka.png', function(img) {
+	l1.load('img1', function(img) {
 	  slide.setImage(img);
 	})
   root.scene.add(slide);
@@ -26,24 +25,16 @@ function init() {
   var slide2 = new Slide(width, height, 'in');
   var l2 = new THREE.ImageLoader();
 	l2.setCrossOrigin('Anonymous');
-	l2.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/spring.jpg', function(img) {
+	l2.load('img2', function(img) {
 		slide2.setImage(img);
 	})
 	
   root.scene.add(slide2);
 
-  var tl = new TimelineMax({repeat:-1, repeatDelay:5.0, yoyo: true});
+  var tl = new TimelineMax({repeat:0, repeatDelay:1.0, yoyo: true});
 
   tl.add(slide.transition(), 0);
   tl.add(slide2.transition(), 0);
-
-  createTweenScrubber(tl);
-  
-  window.addEventListener('keyup', function(e) {
-    if (e.keyCode === 80) {
-      tl.paused(!tl.paused());
-    }
-  });
 }
 
 ////////////////////
@@ -365,24 +356,3 @@ var utils = {
     }
   })()
 };
-
-function createTweenScrubber(tween, seekSpeed) {
-  seekSpeed = seekSpeed || 0.001;
-
-  function stop() {
-    TweenMax.to(tween, 1, {timeScale:0});
-  }
-
-  function resume() {
-    TweenMax.to(tween, 1, {timeScale:1});
-  }
-
-  function seek(dx) {
-    var progress = tween.progress();
-    var p = THREE.Math.clamp((progress + (dx * seekSpeed)), 0, 1);
-
-    tween.progress(p);
-  }
-
-  var _cx = 0;
-}
