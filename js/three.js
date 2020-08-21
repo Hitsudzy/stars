@@ -1,43 +1,57 @@
 window.onload = init;
 console.ward = function() {}; // what warnings?
-
+var images = [
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/winter.jpg',
+    'https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/spring.jpg',
+    'https://as1.ftcdn.net/jpg/02/80/52/86/500_F_280528698_NtjQXey0FIVmCfmBZyxTTKSerHTjryV4.jpg',
+    'https://as2.ftcdn.net/jpg/01/03/21/91/500_F_103219181_ec8MOkmJJMl3lDveddi3MtSeQzPJeI28.jpg'
+];
 function init() {
     var root = new THREERoot({
         createCameraControls: !true,
         antialias: (window.devicePixelRatio === 1),
         fov: 80
     });
-  root.renderer.setClearColor(0x000000, 0);
-  root.renderer.setPixelRatio(window.devicePixelRatio || 1);
-  root.camera.position.set(0, 0, 60);
-  var width = 100;
-  var height = 60;
+    root.renderer.setClearColor(0x000000, 0);
+    root.renderer.setPixelRatio(window.devicePixelRatio || 1);
+    root.camera.position.set(0, 0, 60);
+    var width = 100;
+    var height = 60;
+    
+    var slide = new Slide(width, height, 'out');
+    var l1 = new THREE.ImageLoader();
+    l1.setCrossOrigin('Anonymous');
+    l1.load(images[0], function(img) {
+      slide.setImage(img);
+    })
+    root.scene.add(slide);
 
-  var slide = new Slide(width, height, 'in');
-	var l1 = new THREE.ImageLoader();
-	l1.setCrossOrigin('Anonymous');
-	l1.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/winter.jpg', function(img) {
-	  slide.setImage(img);
-	})
-  root.scene.add(slide);
-
-  var slide2 = new Slide(width, height, 'out');
-  var l2 = new THREE.ImageLoader();
-	l2.setCrossOrigin('Anonymous');
-	l2.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/spring.jpg', function(img) {
-		slide2.setImage(img);
-	})
-	
-  root.scene.add(slide2);
-  
-  setInterval(() => changer(),5000);
-  function changer(){
-    var tl = new TimelineMax({repeat:0, repeatDelay:0.0, yoyo: true});
-    tl.add(slide.transition(), 0);
-    tl.add(slide2.transition(), 0);
-  }
-  
+    var slide2 = new Slide(width, height, 'in');
+    var l2 = new THREE.ImageLoader();
+    l2.setCrossOrigin('Anonymous');
+    l2.load(images[1], function(img) {
+        slide2.setImage(img);
+    })
+    root.scene.add(slide2);
+    
+    var image_number = 0;
+    var interval = setInterval(function(){
+        if (image_number < images.length) {
+            l1.load(images[image_number++], function(img) {
+                slide.setImage(img);
+                slide.transition();
+              });
+            l2.load([images[image_number]], function(img) {
+                slide2.setImage(img);
+                slide2.transition();    
+            });
+        } else {
+            clearInterval(interval);
+            console.log('done');
+        }
+    }, 3000);
 }
+
 ////////////////////
 // CLASSES
 ////////////////////
