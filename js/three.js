@@ -4,7 +4,8 @@ var images = [
     'https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/winter.jpg',
     'https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/spring.jpg',
     'https://as1.ftcdn.net/jpg/02/80/52/86/500_F_280528698_NtjQXey0FIVmCfmBZyxTTKSerHTjryV4.jpg',
-    'https://as2.ftcdn.net/jpg/01/03/21/91/500_F_103219181_ec8MOkmJJMl3lDveddi3MtSeQzPJeI28.jpg'
+    'https://as2.ftcdn.net/jpg/01/03/21/91/500_F_103219181_ec8MOkmJJMl3lDveddi3MtSeQzPJeI28.jpg',
+    'https://as2.ftcdn.net/jpg/03/48/49/61/500_F_348496171_FC1ttxEqvmLI457htXwfnoufEZpmuRSz.jpg'
 ];
 function init() {
     var root = new THREERoot({
@@ -36,7 +37,7 @@ function init() {
     
     var image_number = 0;
     var interval = setInterval(function(){
-        if (image_number < images.length) {
+        if (image_number + 1 < images.length) {
             l1.load(images[image_number++], function(img) {
                 slide.setImage(img);
                 slide.transition();
@@ -46,10 +47,17 @@ function init() {
                 slide2.transition();    
             });
         } else {
-            clearInterval(interval);
-            console.log('done');
+            l1.load(images[images.length - 1], function(img) {
+                slide.setImage(img);
+                slide.transition();
+              });
+            l2.load([images[0]], function(img) {
+                slide2.setImage(img);
+                slide2.transition();    
+            });
+            image_number = 0;
         }
-    }, 3000);
+    }, 5000);
 }
 
 ////////////////////

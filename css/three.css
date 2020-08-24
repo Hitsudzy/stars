@@ -51,3 +51,13 @@ body, html{
     height: 200px;
     overflow: hidden;
 }
+#next-slide{
+    position: absolute;
+    top: 50%;
+    right: 15%;
+}
+#previous-slide{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+}
