@@ -51,7 +51,7 @@
       window.aColor = [255, 255, 255];
       fVX = (2.0 * fPI) / window.iFramesToRotate;
       oRadGrad = null;
-      ctxRender = nCanvasRender.getContext('2d');
+      ctxRender = nCanvasRender__mini.getContext('2d');
       oRender = {
         pFirst: null
       };
@@ -60,8 +60,8 @@
       };
       w = h = 0;
       fnSetSize = function() {
-        nCanvasRender.width = w = window.innerWidth;
-        nCanvasRender.height = h = window.innerHeight;
+        nCanvasRender__mini.width = w = window.innerWidth;
+        nCanvasRender__mini.height = h = window.innerHeight;
         iProjSphereX = w / 2;
         iProjSphereY = h / 2;
         return {
@@ -251,7 +251,7 @@
         window.aColor[1] = ~~window.aColor[1];
         return window.aColor[2] = ~~window.aColor[2];
       });
-      if (window.innerWidth < 1000) {
+      if (window.innerWidth < 100000) {
         gui.close();
         window.iNewParticlePerFrame = 5;
       }

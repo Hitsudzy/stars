@@ -9,14 +9,15 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js'></script>
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js'></script> 
-        <script src='../js/three.js'></script>
+        <script src='../js/slider.js'></script>
         <link rel="stylesheet" type="text/css" href="../css/fullpage.css" />
         <link rel="stylesheet" href="../css/three.css">
     </head>
     <body>
+        <div><canvas id="nCanvasRender__mini" class="mini-sphere"></canvas></div>
         <div id="fullpage">
             <div class="section slide0">
-                <div><canvas id="nCanvasRender"></canvas></div>
+                <div><canvas id="nCanvasRender" class="sphere"></canvas></div>
             </div>
             <div class="section">
                 <div class="slide1">
@@ -28,10 +29,10 @@
                 </div>
             </div>
         </div>
-        
     <script type="text/javascript" src="../js/fullpage.js"></script>
     <script> $(document).ready(function() { $('#fullpage').fullpage(); });</script>
-    <script src='../js/dusty.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js'></script>
+    <script src='../js/sphere.js'></script>
+    <script src='../js/sphere__mini.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js'></script>
     </body>
 </html>
