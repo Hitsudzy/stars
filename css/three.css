@@ -66,5 +66,10 @@ body, html{
     height: 280px !important; 
     position: fixed !important;
     right: -7.5% !important;
-    top: -2.5%;
+    top: -2.5% !important;
+    opacity: 0 !important;
+    transition: all 1.1s ease-out;
+}
+.fp-viewing-1 .mini-sphere, .fp-viewing-2 .mini-sphere{
+    opacity: 1 !important;
 }
