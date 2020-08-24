@@ -14,9 +14,27 @@
         <link rel="stylesheet" href="../css/three.css">
     </head>
     <body>
+        <audio id="player" src="../audio/main.mp3" autoplay loop></audio>
+        <div>
+            <button onclick="document.getElementById('player').play()">Воспроизведение</button>
+            <button onclick="document.getElementById('player').pause()">Пауза</button>
+        </div>
+<!--        <div class="header">
+            <div class="header-left">
+                <div class="header__logo">Active</div>
+            </div>
+            <div class="header-center">
+                <div class="header__services">Услуги</div>
+                <div class="header__product">Продукт</div>                
+            </div>
+            <div class="header-right">
+                <div class="header__number">+7 812 980-57-23 </div>
+                <div class="header__callback"><a>Обсудить проект</a></div>
+                <div><img src="../images/menu.svg"></div>
+            </div>
+        </div>-->
         <div><canvas id="nCanvasRender__mini" class="mini-sphere"></canvas></div>
         <div id="fullpage">
-            
             <div class="section slide0">
                 <div><canvas id="nCanvasRender" class="sphere"></canvas></div>
             </div>

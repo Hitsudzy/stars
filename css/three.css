@@ -5,6 +5,91 @@ body, html{
     -o-background-size: cover;
     background-size: cover;
 }
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    justify-content: space-between;
+    position: static;
+    width: 95%;
+    height: 59px;
+    border-bottom: solid grey 1px;
+    padding: 20px;
+    margin: 0 auto;
+}
+.header-center, .header-right{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.header-left{
+    width: 15%;
+}
+.header-center{
+    width: 40%;
+}
+.header-right{
+    width: 45%;
+    text-align: right
+}
+.header__product, .header__services{
+    font-family: 'Futura Demi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.header__product{
+    margin-left: 20px;
+}
+.header__services{
+    margin-right: 20px;
+}
+.header__logo{
+    font-family: 'Futura Demi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    vertical-align: middle;
+}
+.header__number{
+    font-family: 'Futura Demi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    vertical-align: middle;
+}
+.header__callback{
+    border: 1px solid #E1E1E1;
+    height: 60px;
+    width: 214px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    font-family: 'Futura Demi';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 50px 0 50px;
+}
+.header__callback a{
+    vertical-align: bottom;
+}
 .slide1{
     width: 100vw;
     height: 100vh;
@@ -60,6 +145,7 @@ body, html{
     position: absolute;
     top: 50%;
     left: 15%;
+    z-index: 3;
 }
 .mini-sphere{
     width: 500px !important; 
